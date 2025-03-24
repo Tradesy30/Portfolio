@@ -36,9 +36,6 @@ interface FloatingIcon {
     image: HTMLImageElement;
 }
 
-interface FloatingIconsProps {
-}
-
 const ICON_SIZE = 24;
 const BOX_PADDING = 10; // Slightly reduced padding to match smaller size (was 12)
 const MOVEMENT_SPEED = 0.5;
