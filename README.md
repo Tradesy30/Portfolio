@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Website 🚀
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![Shadcn UI](https://img.shields.io/badge/Shadcn_UI-Latest-black?style=flat-square)](https://ui.shadcn.com/)
 
-First, run the development server:
+Hi, I'm **Christopher Rodriguez**, a developer passionate about crafting modern and responsive web experiences. This portfolio website showcases my projects, skills, and design approach through interactive animations and modern UI components.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Demo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Check out the live site: [View Live](https://portfolio-v2-tradesy30.vercel.app/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Table of Contents
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Highlights](#project-highlights)
+- [Contact](#contact)
 
-## Learn More
+## ✨ Features
 
-To learn more about Next.js, take a look at the following resources:
+- 🎨 Modern UI with Shadcn UI components
+- 🌠 Interactive canvas animations (floating icons & shooting stars)
+- 🌓 Dark/Light theme with smooth transitions
+- 📱 Fully responsive design
+- ⚡ Optimized performance with React Server Components
+- 🔍 Dynamic project showcases
+- 📝 Contact form with validation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework:** Next.js 14 with App Router
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **UI Components:**
+  - Shadcn UI
+  - Radix UI Primitives
+- **Form Handling:**
+  - Formspree
+  - Zod Validation
+- **Icons:** Lucide Icons
+- **Package Manager:** pnpm
 
-## Deploy on Vercel
+## Project Highlights
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Interactive Elements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [x] **Canvas Animations**
+  - [x] Floating technology icons
+  - [x] Shooting stars background
+  - [x] Performance-optimized rendering
+
+### UI/UX Features
+
+- [x] **Modern Component Design**
+  - [x] Glassmorphic card effects
+  - [x] Smooth hover transitions
+  - [x] Responsive layouts
+
+### Performance Optimizations
+
+- [x] **Client-side Optimizations**
+  - [x] Efficient canvas rendering
+  - [x] Optimized scroll performance
+  - [x] Responsive animations
+
+### Content & Functionality
+
+- [x] **Project Showcase**
+  - [x] Detailed project pages
+  - [x] Technology badges
+  - [x] Live demos & source code links
+- [x] **Contact Integration**
+  - [x] Formspree integration
+  - [x] Toast notifications
+  - [x] Form validation with Zod
+
+## Contact
+
+Built with ❤️ by Christopher Rodriguez.
+For inquiries or collaboration, reach out via [Chrisvalk3@gmail.com](mailto:Chrisvalk3@gmail.com).
