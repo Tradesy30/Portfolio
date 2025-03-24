@@ -46,10 +46,6 @@ const MOVEMENT_SPEED = 0.5;
 const ROTATION_SPEED = 0.003;
 const BOX_SIZE = ICON_SIZE + (BOX_PADDING * 2);
 const MAX_SPEED = 1.6; // Increased from 0.8 to match new movement speed
-const DAMPING = 0.98; // Damping factor to gradually reduce speed
-const SPEED = 0.5;
-const NUM_ICONS = 15;
-const SPAWN_INTERVAL = 3000;
 
 const clampSpeed = (speed: number): number => {
     return Math.max(-MAX_SPEED, Math.min(MAX_SPEED, speed));
@@ -120,14 +116,6 @@ const resolveCollision = (icon1: FloatingIcon, icon2: FloatingIcon): void => {
     icon1.rotationSpeed += (Math.random() - 0.5) * rotationImpulse;
     icon2.rotationSpeed += (Math.random() - 0.5) * rotationImpulse;
 };
-
-interface Icon {
-    x: number;
-    y: number;
-    vx: number;
-    vy: number;
-    element: string;
-}
 
 export default function FloatingIcons({ className = "h-full w-full" }: FloatingIconsProps): React.ReactElement {
     const { resolvedTheme } = useTheme();

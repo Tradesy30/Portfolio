@@ -89,7 +89,7 @@ export default function ContactForm() {
                             <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-1/2 bg-gradient-to-b from-primary/50 to-transparent rounded-full" />
                             <div className="pl-4 border-l border-primary/20">
                                 <p className="text-lg text-foreground/90 leading-relaxed">
-                                    Have a question or want to work together? I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                                    Have a question or want to work together? I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
                                 </p>
                             </div>
                         </div>

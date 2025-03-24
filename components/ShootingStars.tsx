@@ -30,7 +30,6 @@ export default function Sparkles({
     minSize = 2.0,
     maxSize = 4.0,
     particleDensity = 25,
-    className = "h-full w-full",
     particleColor = "#38bdf8",
     speed = 1,
     particleGlow = true,
@@ -39,7 +38,6 @@ export default function Sparkles({
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const particlesRef = useRef<Particle[]>([]);
     const animationFrameIdRef = useRef<number | null>(null);
-    const containerRef = useRef<HTMLDivElement | null>(null);
 
     const currentParticleColor = resolvedTheme === 'dark' ? particleColor : '#0c4a6e';
 
