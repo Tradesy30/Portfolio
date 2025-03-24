@@ -1,103 +1,167 @@
+// app/page.tsx
+import { MapPin, Download, Github, ExternalLink } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardFooter,
+} from "@/components/ui/card";
+import { TechStack } from "@/components/TechStack";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { projects } from "@/app/data/projects";
+import Link from "next/link";
 import Image from "next/image";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="relative min-h-screen">
+      <main className="w-full">
+        <div className="text-center pt-8 sm:pt-12">
+          <h1 className="text-6xl sm:text-7xl font-bold tracking-tighter bg-gradient-to-br from-primary/80 via-foreground to-primary/80 bg-clip-text text-transparent">
+            Portfolio
+          </h1>
         </div>
+        <section id="hero" className="relative pt-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <Card className="relative border-border/40 bg-background/60 backdrop-blur-xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background/0 to-secondary/20 pointer-events-none" />
+              <div className="absolute -inset-[1000px] bg-background/30 backdrop-blur-[2px] pointer-events-none" />
+
+              <div className="relative">
+                <CardHeader>
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <div className="inline-block">
+                        <span className="text-sm font-medium bg-primary/20 text-primary px-3 py-1 rounded-full">
+                          Frontend Developer
+                        </span>
+                      </div>
+                      <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-relaxed bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent pb-1">
+                        Christopher Rodriguez
+                      </h1>
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <MapPin className="w-4 h-4 text-primary" />
+                      <span>Greensboro, NC, USA</span>
+                    </div>
+                  </div>
+                </CardHeader>
+
+                <CardContent className="space-y-6">
+                  <div className="max-w-2xl relative">
+                    <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-1/2 bg-gradient-to-b from-primary/50 to-transparent rounded-full" />
+                    <div className="pl-4 border-l border-primary/20">
+                      <p className="text-lg text-foreground/90 leading-relaxed">
+                        Passionate about crafting exceptional web experiences through modern, accessible applications.
+                        With expertise in React and Next.js, I transform complex challenges into elegant, user-centric solutions.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="tech-stack-container">
+                    <TechStack />
+                  </div>
+
+                  <div className="flex justify-center pt-2">
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="lg"
+                      className="group gap-2 hover:bg-primary/5"
+                    >
+                      <a href="/Christopher-Rodriguez-CV.pdf" download>
+                        <Download className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
+                        Download Resume
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </div>
+            </Card>
+          </div>
+        </section>
+
+        <section id="projects" className="relative pt-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-12 bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
+              Featured Projects
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {projects.map((project) => (
+                <Card
+                  key={project.id}
+                  className="group relative border-border/40 bg-background/60 backdrop-blur-xl overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/0 to-secondary/10 pointer-events-none" />
+                  <Link href={`/projects/${project.slug}`} className="block">
+                    <CardHeader>
+                      <div className="aspect-video relative overflow-hidden rounded-lg mb-4">
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-background/20" />
+                        <Image
+                          src={project.coverImage}
+                          alt={project.title}
+                          fill
+                          className="object-cover select-none"
+                          priority
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      </div>
+                      <h3 className="text-2xl font-semibold tracking-tight">{project.title}</h3>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-foreground/90 mb-4 leading-relaxed">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.technologies.slice(0, 3).map((tech) => (
+                          <Badge
+                            key={tech.name}
+                            variant="secondary"
+                            className="text-sm py-1 px-3"
+                            style={{
+                              backgroundColor: `${tech.color}15`,
+                              color: tech.color,
+                            }}
+                          >
+                            {tech.name}
+                          </Badge>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <Badge variant="secondary">
+                            +{project.technologies.length - 3} more
+                          </Badge>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Link>
+                  <CardFooter className="flex gap-4">
+                    <Button variant="outline" size="sm" className="group/btn" asChild>
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Github className="w-4 h-4 mr-2 transition-transform group-hover/btn:scale-110" />
+                        Source Code
+                      </a>
+                    </Button>
+                    <Button variant="outline" size="sm" className="group/btn" asChild>
+                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-2 transition-transform group-hover/btn:scale-110" />
+                        Live Demo
+                      </a>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mx-auto">
+            <ContactForm />
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }

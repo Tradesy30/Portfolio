@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { Toaster } from "@/components/ui/toaster";
+import ShootingStars from "@/components/ShootingStars";
+import FloatingIcons from "@/components/FloatingIcons";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +28,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full overflow-x-hidden`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="relative min-h-full">
+            <ThemeToggle />
+            <div className="fixed inset-0 pointer-events-none select-none">
+              <div className="absolute inset-0 transform-gpu">
+                <ShootingStars />
+              </div>
+              <div className="absolute inset-0 transform-gpu">
+                <FloatingIcons />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
+            </div>
+            <div className="relative z-10">
+              {children}
+            </div>
+          </div>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
