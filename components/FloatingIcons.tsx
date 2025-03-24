@@ -37,7 +37,6 @@ interface FloatingIcon {
 }
 
 interface FloatingIconsProps {
-    className?: string;
 }
 
 const ICON_SIZE = 24;
@@ -117,13 +116,12 @@ const resolveCollision = (icon1: FloatingIcon, icon2: FloatingIcon): void => {
     icon2.rotationSpeed += (Math.random() - 0.5) * rotationImpulse;
 };
 
-export default function FloatingIcons({ className = "h-full w-full" }: FloatingIconsProps): React.ReactElement {
+export default function FloatingIcons(): React.ReactElement {
     const { resolvedTheme } = useTheme();
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const iconsRef = useRef<FloatingIcon[]>([]);
     const animationFrameIdRef = useRef<number | null>(null);
     const loadedImages = useRef<HTMLImageElement[]>([]);
-    const containerRef = useRef<HTMLDivElement | null>(null);
 
     const createIcon = useCallback((canvas: HTMLCanvasElement, index: number): FloatingIcon => {
         const scale = window.devicePixelRatio || 1;
