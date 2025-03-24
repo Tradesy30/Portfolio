@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { useForm } from "@formspree/react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -20,8 +19,6 @@ const contactFormSchema = z.object({
     message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
-type ContactFormData = z.infer<typeof contactFormSchema>;
-
 export default function ContactForm() {
     const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_ID as string);
     const { toast } = useToast();
@@ -37,7 +34,7 @@ export default function ContactForm() {
 
         try {
             // Validate form data
-            const validatedData = contactFormSchema.parse(data);
+            await contactFormSchema.parse(data);
 
             // Submit form
             await handleSubmit(e);
@@ -45,7 +42,7 @@ export default function ContactForm() {
             // Show success toast
             toast({
                 title: "Message sent successfully! 🎉",
-                description: "Thank you for reaching out. I'll get back to you soon.",
+                description: "Thank you for reaching out. I&apos;ll get back to you soon.",
                 className: "bg-green-500/10 border-green-500/20 text-green-500",
                 action: (
                     <div className="h-8 w-8 bg-green-500/20 rounded-full flex items-center justify-center">
