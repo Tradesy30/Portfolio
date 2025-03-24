@@ -7,10 +7,11 @@ import { Github, ExternalLink, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-interface PageProps {
+type Props = {
     params: {
         slug: string;
     };
+    searchParams: { [key: string]: string | string[] | undefined };
 }
 
 export async function generateStaticParams() {
@@ -19,7 +20,7 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function ProjectPage({ params }: PageProps) {
+export default function ProjectPage({ params }: Props) {
     const project = projects.find((p) => p.slug === params.slug);
 
     if (!project) {
