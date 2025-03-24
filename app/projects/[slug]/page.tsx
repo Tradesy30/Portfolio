@@ -1,4 +1,6 @@
-import { notFound } from "next/navigation";
+'use client';
+
+import { notFound, useParams } from "next/navigation";
 import { projects } from "@/app/data/projects";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -7,20 +9,8 @@ import { Github, ExternalLink, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-type Props = {
-    params: {
-        slug: string;
-    };
-    searchParams: { [key: string]: string | string[] | undefined };
-}
-
-export async function generateStaticParams() {
-    return projects.map((project) => ({
-        slug: project.slug,
-    }));
-}
-
-export default function ProjectPage({ params }: Props) {
+export default function ProjectPage() {
+    const params = useParams();
     const project = projects.find((p) => p.slug === params.slug);
 
     if (!project) {
