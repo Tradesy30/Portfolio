@@ -18,12 +18,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://portfolio-virid-theta-25.vercel.app'),
   title: "Christopher Rodriguez | Full Stack Developer",
   description: "Full Stack Developer specializing in modern web applications with Next.js, TypeScript, and React. Explore my portfolio featuring interactive animations and responsive design.",
   openGraph: {
     title: "Christopher Rodriguez | Full Stack Developer",
     description: "Full Stack Developer specializing in modern web applications with Next.js, TypeScript, and React. Explore my portfolio featuring interactive animations and responsive design.",
-    url: "https://portfolio-v2-tradesy30.vercel.app/",
+    url: "https://portfolio-virid-theta-25.vercel.app/",
     siteName: "Christopher Rodriguez Portfolio",
     images: [
       {

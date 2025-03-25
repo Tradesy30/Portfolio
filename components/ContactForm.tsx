@@ -1,48 +1,28 @@
 "use client";
 
-import { useForm } from "@formspree/react";
+import { useForm, ValidationError } from "@formspree/react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { z } from "zod";
+import React from "react";
 
 if (!process.env.NEXT_PUBLIC_FORMSPREE_ID) {
     throw new Error("NEXT_PUBLIC_FORMSPREE_ID is not defined in environment variables");
 }
 
-const contactFormSchema = z.object({
-    name: z.string().min(2, "Name must be at least 2 characters"),
-    email: z.string().email("Please enter a valid email address"),
-    message: z.string().min(10, "Message must be at least 10 characters"),
-});
-
 export default function ContactForm() {
-    const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_ID as string);
+    const [state, handleSubmit] = useForm("mzzegnry");
     const { toast } = useToast();
+    const formRef = React.useRef<HTMLFormElement>(null);
 
-    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const formData = new FormData(e.currentTarget);
-        const data = {
-            name: formData.get("name") as string,
-            email: formData.get("email") as string,
-            message: formData.get("message") as string,
-        };
-
-        try {
-            // Validate form data
-            await contactFormSchema.parse(data);
-
-            // Submit form
-            await handleSubmit(e);
-
-            // Show success toast
+    React.useEffect(() => {
+        if (state.succeeded) {
             toast({
                 title: "Message sent successfully! 🎉",
-                description: "Thank you for reaching out. I&apos;ll get back to you soon.",
+                description: "Thank you for reaching out. I'll get back to you soon.",
                 className: "bg-green-500/10 border-green-500/20 text-green-500",
                 action: (
                     <div className="h-8 w-8 bg-green-500/20 rounded-full flex items-center justify-center">
@@ -51,26 +31,11 @@ export default function ContactForm() {
                 ),
             });
 
-            // Reset form
-            (e.target as HTMLFormElement).reset();
-        } catch (error) {
-            if (error instanceof z.ZodError) {
-                // Show validation error toast
-                toast({
-                    title: "Invalid form data",
-                    description: error.errors[0].message,
-                    variant: "destructive",
-                });
-            } else {
-                // Show general error toast
-                toast({
-                    title: "Error",
-                    description: "Failed to send message. Please try again.",
-                    variant: "destructive",
-                });
+            if (formRef.current) {
+                formRef.current.reset();
             }
         }
-    };
+    }, [state.succeeded, toast]);
 
     return (
         <Card className="group relative border-border/40 bg-background/60 backdrop-blur-xl overflow-hidden">
@@ -96,31 +61,52 @@ export default function ContactForm() {
                     </div>
                 </CardHeader>
                 <CardContent className="pt-6">
-                    <form onSubmit={onSubmit} className="space-y-6">
+                    <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                         <div className="space-y-2">
                             <Input
+                                id="name"
                                 type="text"
                                 name="name"
                                 placeholder="Your Name"
                                 required
                                 className="bg-background/50"
                             />
+                            <ValidationError
+                                prefix="Name"
+                                field="name"
+                                errors={state.errors}
+                                className="text-sm text-destructive"
+                            />
                         </div>
                         <div className="space-y-2">
                             <Input
+                                id="email"
                                 type="email"
                                 name="email"
                                 placeholder="Your Email"
                                 required
                                 className="bg-background/50"
                             />
+                            <ValidationError
+                                prefix="Email"
+                                field="email"
+                                errors={state.errors}
+                                className="text-sm text-destructive"
+                            />
                         </div>
                         <div className="space-y-2">
                             <Textarea
+                                id="message"
                                 name="message"
                                 placeholder="Your Message"
                                 required
                                 className="min-h-[120px] bg-background/50"
+                            />
+                            <ValidationError
+                                prefix="Message"
+                                field="message"
+                                errors={state.errors}
+                                className="text-sm text-destructive"
                             />
                         </div>
                         <div>
@@ -132,6 +118,10 @@ export default function ContactForm() {
                                 <Send className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                                 {state.submitting ? "Sending..." : "Send Message"}
                             </Button>
+                            <ValidationError
+                                errors={state.errors}
+                                className="mt-2 text-sm text-destructive"
+                            />
                         </div>
                     </form>
                 </CardContent>
