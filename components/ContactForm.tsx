@@ -70,6 +70,7 @@ export default function ContactForm() {
                                 placeholder="Your Name"
                                 required
                                 className="bg-background/50"
+                                autoComplete="name"
                             />
                             <ValidationError
                                 prefix="Name"
@@ -86,6 +87,7 @@ export default function ContactForm() {
                                 placeholder="Your Email"
                                 required
                                 className="bg-background/50"
+                                autoComplete="email"
                             />
                             <ValidationError
                                 prefix="Email"
@@ -112,10 +114,10 @@ export default function ContactForm() {
                         <div>
                             <Button
                                 type="submit"
+                                variant="ghost"
                                 disabled={state.submitting}
-                                className={`group/btn gap-2 transition-colors ${state.submitting ? 'bg-primary/20' : 'hover:bg-primary/5'}`}
+                                className="bg-primary/20 text-primary hover:bg-primary/25 transition-transform hover:scale-[1.02]"
                             >
-                                <Send className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                                 {state.submitting ? "Sending..." : "Send Message"}
                             </Button>
                             <ValidationError
