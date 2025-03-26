@@ -17,13 +17,13 @@ export const projects: Project[] = [
         ],
         tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn UI'],
         technologies: [
-            { name: 'Next.js 14', color: '#000000' },
+            { name: 'Next.js 14', color: '#0070F3' },
             { name: 'TypeScript', color: '#3178C6' },
             { name: 'Tailwind CSS', color: '#38B2AC' },
-            { name: 'Shadcn UI', color: '#000000' },
-            { name: 'Radix UI', color: '#FF0066' },
-            { name: 'Lucide Icons', color: '#5B21B6' },
-            { name: 'Zod', color: '#3E63DD' }
+            { name: 'Shadcn UI', color: '#8A2BE2' },
+            { name: 'Radix UI', color: '#FF4D94' },
+            { name: 'Lucide Icons', color: '#9333EA' },
+            { name: 'Zod', color: '#4F46E5' }
         ],
         features: [
             {
@@ -86,12 +86,12 @@ export const projects: Project[] = [
         ],
         tags: ['React', 'Node.js', 'MongoDB', 'WebSocket'],
         technologies: [
-            { name: 'React', color: '#61DAFB' },
-            { name: 'Node.js', color: '#339933' },
-            { name: 'MongoDB', color: '#47A248' },
-            { name: 'Socket.io', color: '#010101' },
-            { name: 'Express', color: '#000000' },
-            { name: 'Chart.js', color: '#FF6384' }
+            { name: 'React', color: '#0070F3' },
+            { name: 'Node.js', color: '#84CC16' },
+            { name: 'MongoDB', color: '#4ADE80' },
+            { name: 'Socket.io', color: '#E879F9' },
+            { name: 'Express', color: '#94A3B8' },
+            { name: 'Chart.js', color: '#F472B6' }
         ],
         features: [
             {

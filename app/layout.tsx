@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { Toaster } from "@/components/ui/toaster";
 import ShootingStars from "@/components/ShootingStars";
 import FloatingIcons from "@/components/FloatingIcons";
@@ -76,7 +75,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="relative min-h-full">
-            <ThemeToggle />
+
             <div className="fixed inset-0 pointer-events-none select-none">
               <div className="absolute inset-0 transform-gpu">
                 <ShootingStars />

@@ -58,10 +58,12 @@ export default function ProjectPage() {
                                         <Badge
                                             key={tech.name}
                                             variant="secondary"
-                                            className="text-sm py-1 px-3"
+                                            className="text-sm py-1 px-3 transition-colors border"
                                             style={{
-                                                backgroundColor: `${tech.color}15`,
+                                                backgroundColor: `${tech.color}20`,
+                                                borderColor: `${tech.color}40`,
                                                 color: tech.color,
+                                                boxShadow: `inset 0 1px 0 ${tech.color}10`,
                                             }}
                                         >
                                             {tech.name}

@@ -10,6 +10,7 @@ import { TechStack } from "@/components/TechStack";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { projects } from "@/app/data/projects";
+import { Navigation } from "@/components/Navigation";
 import Link from "next/link";
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
@@ -17,12 +18,8 @@ import ContactForm from "@/components/ContactForm";
 export default function Home() {
   return (
     <div className="relative min-h-screen">
-      <main className="w-full">
-        <div className="text-center pt-8 sm:pt-12">
-          <h1 className="text-6xl sm:text-7xl font-bold tracking-tighter bg-gradient-to-br from-primary/80 via-foreground to-primary/80 bg-clip-text text-transparent">
-            Portfolio
-          </h1>
-        </div>
+      <Navigation />
+      <main className="w-full pt-8">
         <section id="hero" className="relative pt-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <Card className="relative border-border/40 bg-background/60 backdrop-blur-xl overflow-hidden">
